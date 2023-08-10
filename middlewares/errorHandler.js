@@ -1,7 +1,7 @@
 const errorHandler = (err, _req, res, _next) => {
   console.log(err);
-  let statusCode = 0;
-  let message = "";
+  let statusCode = 500;
+  let message = "Internal Server Error";
   switch (err.name) {
     case "SequelizeValidationError":
       statusCode = 400;
@@ -15,13 +15,18 @@ const errorHandler = (err, _req, res, _next) => {
       statusCode = 400;
       message = "Invalid Token";
       break;
+    case "NotFound":
+      statusCode = 404;
+      message = err.message;
+      break;
+    case "Forbidden":
+      statusCode = 403;
+      message = "You prohibited to access";
     case "Unauthenticated":
       statusCode = 401;
       message = "Unauthenticated";
       break;
     default:
-      statusCode = 500;
-      message = "Internal Server Error";
       break;
   }
 

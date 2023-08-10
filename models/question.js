@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const { uuid } = require("uuidv4");
 module.exports = (sequelize, DataTypes) => {
   class Question extends Model {
     /**
@@ -27,18 +28,60 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      description: DataTypes.TEXT,
-      problemType: DataTypes.INTEGER,
-      status: DataTypes.STRING,
-      imgUrl: DataTypes.STRING,
-      authorId: DataTypes.INTEGER,
+      description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Description is required",
+          },
+          notEmpty: {
+            msg: "Description is required",
+          },
+        },
+      },
+      problemType: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Problem type is required",
+          },
+          notEmpty: {
+            msg: "Problem type is required",
+          },
+        },
+      },
+      status: {
+        type: DataTypes.STRING,
+        defaultValue: "active",
+      },
+      imgUrl: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      authorId: DataTypes.UUID,
       answer: DataTypes.TEXT,
-      phase: DataTypes.INTEGER,
+      phase: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Phase is required",
+          },
+          notEmpty: {
+            msg: "Phase is required",
+          },
+        },
+      },
     },
     {
       sequelize,
       modelName: "Question",
     }
   );
+  Question.beforeCreate((question) => {
+    question.id = uuid();
+  });
   return Question;
 };
