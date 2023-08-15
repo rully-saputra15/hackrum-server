@@ -36,6 +36,14 @@
         "color":"#000000"
     },
     {
+        "title":"Server",
+        "color":"#000000"
+    },
+    {
+        "title":"JWT",
+        "color":"#000000"
+    },
+    {
         "title":"3rd Party Api",
         "color":"#353935"
     },
