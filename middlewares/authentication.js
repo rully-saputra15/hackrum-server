@@ -19,6 +19,7 @@ const authentication = async (req, res, next) => {
       id: user.id,
       email: user.email,
       role: user.email,
+      isActive: user.isActive,
     };
     next();
   } catch (err) {

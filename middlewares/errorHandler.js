@@ -26,6 +26,10 @@ const errorHandler = (err, _req, res, _next) => {
       statusCode = 401;
       message = "Unauthenticated";
       break;
+    case "UserNotActive":
+      statusCode = 403;
+      message = "User not active, please reach out to rsaputra@hacktiv8.com";
+      break;
     default:
       break;
   }

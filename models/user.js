@@ -17,7 +17,10 @@ module.exports = (sequelize, DataTypes) => {
   User.init(
     {
       email: DataTypes.STRING,
-      isActive: DataTypes.BOOLEAN,
+      isActive: {
+        type: "DataTypes.BOOLEAN",
+        defaultValue: false,
+      },
       role: DataTypes.STRING,
     },
     {

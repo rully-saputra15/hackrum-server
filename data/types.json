@@ -4,6 +4,54 @@
         "color": "#42b983"
     },
     {
+        "title": "Vue Router",
+        "color": "#42b983"
+    },
+    {
+        "title":"Axios",
+        "color":"#671CDE"
+    },
+    {
+        "title":"Git",
+        "color":"#E84D32"
+    },
+    {
+        "title": "Postgres",
+        "color": "#31648C"
+    },
+    {
+        "title":"ReactJs",
+        "color":"#0A7EA3"
+    },
+    {
+        "title":"React Native",
+        "color":"#0A7EA3"
+    },
+    {
+        "title":"Jest & Supertest",
+        "color":"#C53C16"
+    },
+    {
+        "title":"General",
+        "color":"#000000"
+    },
+    {
+        "title":"3rd Party Api",
+        "color":"#353935"
+    },
+    {
+        "title":"Pinia",
+        "color":"#FED554"
+    },
+    {
+        "title":"Jquery",
+        "color":"#0968AD"
+    },
+    {
+        "title":"Challenge",
+        "color": "#301934"
+    },
+    {
         "title": "Express.js",
         "color": "#000000"
     },

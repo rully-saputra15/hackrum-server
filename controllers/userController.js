@@ -19,7 +19,7 @@ class UserController {
         defaults: {
           email: payload.email,
           role: "student",
-          isActive: true,
+          isActive: false,
         },
       });
 
