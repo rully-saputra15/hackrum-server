@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.User, { foreignKey: "authorId", as: "user" });
       this.belongsTo(models.Type, { foreignKey: "problemType", as: "type" });
+      this.belongsTo(models.User, {
+        foreignKey: "answerAuthorId",
+        as: "answerAuthorUser",
+      });
     }
   }
   Question.init(
@@ -62,6 +66,18 @@ module.exports = (sequelize, DataTypes) => {
       },
       authorId: DataTypes.UUID,
       answer: DataTypes.TEXT,
+      answerAuthorId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Answer Author Id is required",
+          },
+          notEmpty: {
+            msg: "Answer Author Id is required",
+          },
+        },
+      },
       phase: {
         type: DataTypes.INTEGER,
         allowNull: false,

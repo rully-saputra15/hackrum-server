@@ -52,10 +52,11 @@ class QuestionController {
       const { id } = req.params;
       const result = await Question.findByPk(id, {
         attributes: {
-          exclude: ["authorId", "problemType"],
+          exclude: ["authorId", "problemType", "answerAuthorId"],
         },
         include: [
           { model: User, as: "user", attributes: ["email"] },
+          { model: User, as: "answerAuthorUser", attributes: ["email"] },
           {
             model: Type,
             as: "type",
@@ -86,6 +87,7 @@ class QuestionController {
         {
           answer,
           imgUrl,
+          answerAuthorId: req.user.id,
           status: "solved",
         },
         { where: { id }, returning: true }
