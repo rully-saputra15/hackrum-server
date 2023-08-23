@@ -68,15 +68,6 @@ module.exports = (sequelize, DataTypes) => {
       answer: DataTypes.TEXT,
       answerAuthorId: {
         type: DataTypes.UUID,
-        allowNull: false,
-        validate: {
-          notNull: {
-            msg: "Answer Author Id is required",
-          },
-          notEmpty: {
-            msg: "Answer Author Id is required",
-          },
-        },
       },
       phase: {
         type: DataTypes.INTEGER,
